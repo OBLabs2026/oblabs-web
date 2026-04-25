@@ -14,7 +14,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-64 h-64 md:w-80 md:h-80 mb-8"
+          className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] mb-10"
         >
           <Image 
             src="/media/main_logo.png" 

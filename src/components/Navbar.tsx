@@ -25,14 +25,10 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center group relative h-12 w-48">
-          <Image 
-            src="/media/Mainpage_banner.png" 
-            alt="OB Labs Banner" 
-            fill
-            className="object-contain object-left drop-shadow-[0_0_10px_rgba(0,255,200,0.3)] transition-all"
-            priority
-          />
+        <Link href="/" className="flex items-center group relative h-12">
+          <span className="text-2xl md:text-3xl font-black tracking-[0.2em] text-white uppercase drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] hover:drop-shadow-[0_0_15px_rgba(0,255,200,0.5)] transition-all">
+            OB Labs
+          </span>
         </Link>
 
         {/* Desktop Nav - Plain text with hover effect */}
