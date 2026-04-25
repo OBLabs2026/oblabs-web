@@ -7,19 +7,19 @@ const services = [
   {
     title: "Games",
     description: "Cutting-edge gameplay systems. Games designed with amazing visual fidelity, engaging game loops, and scalable backend architecture to support millions of players worldwide.",
-    image: "/media/service-1.png",
+    image: "/media/games.png",
     reverse: false,
   },
   {
     title: "Apps",
     description: "Fluid user experiences. Mobile applications built with native performance, intuitive UI/UX design, and robust data synchronization across devices and platforms.",
-    image: "/media/service-2.png",
+    image: "/media/Apps.png",
     reverse: true,
   },
   {
     title: "Solutions",
     description: "AI and backend systems. Enterprise-grade AI solutions ensuring scalable data processing, predictive analytics, and automated decision making pipelines.",
-    image: "/media/service-3.png",
+    image: "/media/solutions.png",
     reverse: false,
   }
 ];
@@ -57,7 +57,7 @@ export default function Services() {
 
               {/* Image Side */}
               <div className="w-full md:w-1/2 relative min-h-[300px]">
-                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10" />
+
                 <Image 
                   src={service.image} 
                   alt={service.title}
