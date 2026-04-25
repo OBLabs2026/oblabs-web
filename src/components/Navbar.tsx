@@ -2,17 +2,16 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -20,39 +19,33 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/70 backdrop-blur-md border-b border-white/10 py-3"
-          : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/80 backdrop-blur-md border-b border-primary/20 py-4" : "bg-transparent py-6"
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 text-white">
-          <Image
-            src="/oblabs-logo.png"
-            alt="OB Labs logo"
-            width={44}
-            height={44}
-            className="h-11 w-11 rounded-full object-cover shadow-[0_0_18px_rgba(56,189,248,0.45)]"
-            priority
-          />
-          <span className="text-2xl font-bold tracking-tighter">
-            OB<span className="text-primary">LABS</span>
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 group">
+          {/* CB Logo Placeholder */}
+          <div className="w-10 h-10 bg-primary/10 rounded-md border border-primary/50 flex items-center justify-center shadow-[0_0_10px_rgba(0,255,200,0.3)] group-hover:shadow-[0_0_15px_rgba(0,255,200,0.6)] transition-all">
+            <span className="font-black text-primary tracking-tighter">CB</span>
+          </div>
+          <span className="text-xl font-bold tracking-tighter text-white">
+            OB<span className="text-primary">Labs</span>
           </span>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-          <Link href="#games" className="hover:text-white transition-colors">Games</Link>
-          <Link href="#apps" className="hover:text-white transition-colors">Apps</Link>
-          <Link href="#services" className="hover:text-white transition-colors">Services</Link>
-          <Link href="#about" className="hover:text-white transition-colors">About</Link>
+          <Link href="#services" className="hover:text-primary transition-colors">Services</Link>
+          <Link href="#work" className="hover:text-primary transition-colors">Projects</Link>
+          <Link href="#about" className="hover:text-primary transition-colors">About</Link>
+          <Link href="#contact" className="hover:text-primary transition-colors">Contact</Link>
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Link href="#contact" className="px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors">
-            Contact Us
+          <Link href="#contact" className="px-6 py-2.5 rounded-full border border-accent text-accent hover:bg-accent/10 transition-colors shadow-[0_0_10px_rgba(0,150,255,0.2)_inset] text-sm font-bold">
+            Get In Touch
           </Link>
         </div>
 
@@ -72,12 +65,12 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-b border-white/10 py-6 px-6 flex flex-col space-y-4 md:hidden"
+            className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-b border-primary/20 py-6 px-6 flex flex-col space-y-4 md:hidden"
           >
-            <Link href="#games" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Games</Link>
-            <Link href="#apps" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Apps</Link>
-            <Link href="#services" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium">Services</Link>
-            <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-primary">Contact Us</Link>
+            <Link href="#services" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-primary">Services</Link>
+            <Link href="#work" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-primary">Projects</Link>
+            <Link href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white hover:text-primary">About</Link>
+            <Link href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-accent hover:text-primary">Contact</Link>
           </motion.div>
         )}
       </AnimatePresence>
