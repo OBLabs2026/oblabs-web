@@ -21,22 +21,23 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-6 text-center z-10 flex flex-col items-center">
-        {/* We keep the text and buttons. If the image already has text baked in, we can remove these later */}
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="max-w-4xl mx-auto space-y-8 mt-48"
+          className="max-w-4xl mx-auto space-y-8 mt-20"
         >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow-lg">
-            We Build Intelligent Digital Systems
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+            We Build Intelligent <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent drop-shadow-[0_0_20px_rgba(0,255,200,0.5)]">Digital Systems</span>
           </h2>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
-            <button className="px-8 py-3 rounded-full bg-primary text-black font-bold shadow-[0_0_20px_rgba(0,255,200,0.5)] hover:scale-105 transition-all">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+            <button className="px-8 py-3 rounded-full bg-primary text-black font-bold shadow-[0_0_20px_rgba(0,255,200,0.5)] hover:scale-105 transition-all text-lg">
               Explore Solutions
             </button>
-            <button className="px-8 py-3 rounded-full border-2 border-accent text-accent font-bold hover:bg-accent/10 transition-all shadow-[0_0_15px_rgba(0,150,255,0.2)_inset]">
+            <button className="px-8 py-3 rounded-full border-2 border-accent text-accent font-bold hover:bg-accent/10 transition-all shadow-[0_0_15px_rgba(0,150,255,0.2)_inset] text-lg">
               View Projects
             </button>
           </div>
@@ -46,9 +47,9 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="mt-24 animate-bounce"
+          className="mt-32 animate-bounce"
         >
-          <ArrowDown className="w-6 h-6 text-primary" />
+          <ArrowDown className="w-8 h-8 text-primary drop-shadow-[0_0_10px_rgba(0,255,200,0.8)]" />
         </motion.div>
       </div>
     </section>
