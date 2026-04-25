@@ -1,26 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Gamepad2, Smartphone, Cpu } from "lucide-react";
+import Image from "next/image";
 
 export default function Categories() {
   const categories = [
     {
       title: "games",
       desc: "Cutting-edge gameplay systems",
-      icon: <Gamepad2 className="w-10 h-10 text-primary mb-4" />,
+      icon: "/media/games_icon.png",
       delay: 0.1,
     },
     {
       title: "apps",
       desc: "Fluid user experiences",
-      icon: <Smartphone className="w-10 h-10 text-primary mb-4" />,
+      icon: "/media/Apps_icon.png",
       delay: 0.2,
     },
     {
       title: "solutions",
       desc: "AI-driven business logic",
-      icon: <Cpu className="w-10 h-10 text-primary mb-4" />,
+      icon: "/media/solutions_icon.png",
       delay: 0.3,
     }
   ];
@@ -44,8 +44,13 @@ export default function Categories() {
               viewport={{ once: true }}
               className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-primary/50 bg-background/50 backdrop-blur-sm shadow-[0_0_20px_rgba(0,255,200,0.15)] hover:shadow-[0_0_30px_rgba(0,255,200,0.4)] transition-all hover:-translate-y-2 group cursor-pointer"
             >
-              <div className="group-hover:scale-110 transition-transform duration-300">
-                {cat.icon}
+              <div className="group-hover:scale-110 transition-transform duration-300 relative w-16 h-16 mb-4">
+                <Image
+                  src={cat.icon}
+                  alt={cat.title}
+                  fill
+                  className="object-contain drop-shadow-[0_0_8px_rgba(0,255,200,0.6)]"
+                />
               </div>
               <h4 className="text-2xl font-bold text-white mb-2">{cat.title}</h4>
               <p className="text-gray-400 text-center text-sm">{cat.desc}</p>
