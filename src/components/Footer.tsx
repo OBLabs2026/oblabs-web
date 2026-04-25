@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Globe, MessageCircle } from "lucide-react";
+import { Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,12 +10,14 @@ export default function Footer() {
       <div className="container mx-auto px-6 flex flex-col items-center">
         {/* Logo */}
         <Link href="/" className="mb-6 flex flex-col items-center group">
-          <div className="w-12 h-12 bg-primary/10 rounded-md border border-primary/50 flex items-center justify-center shadow-[0_0_10px_rgba(0,255,200,0.3)] mb-2 group-hover:shadow-[0_0_20px_rgba(0,255,200,0.6)] transition-all">
-            <span className="font-black text-primary tracking-tighter text-xl">CB</span>
+          <div className="relative w-24 h-24 mb-2 group-hover:scale-105 transition-transform drop-shadow-[0_0_15px_rgba(0,255,200,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(0,255,200,0.6)]">
+            <Image
+              src="/media/main_logo.png"
+              alt="OB Labs Logo"
+              fill
+              className="object-contain"
+            />
           </div>
-          <span className="text-sm font-bold tracking-widest text-gray-300 uppercase">
-            OB Labs
-          </span>
         </Link>
 
         {/* Social Links */}
