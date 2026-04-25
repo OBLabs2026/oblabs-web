@@ -36,34 +36,33 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: service.reverse ? 50 : -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className={`flex flex-col ${service.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-stretch rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-transparent hover:border-primary/40 transition-colors shadow-lg`}
+              className="relative rounded-3xl overflow-hidden border border-white/10 hover:border-primary/40 transition-colors shadow-lg min-h-[400px] flex items-center"
             >
-              {/* Text Side */}
-              <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                <h3 className="text-3xl font-bold mb-4 text-white">{service.title}</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="mt-6">
-                  <button className="text-primary font-medium hover:text-white transition-colors flex items-center gap-2">
-                    Learn more <span>→</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Image Side */}
-              <div className="w-full md:w-1/2 relative min-h-[300px]">
-
+              {/* Background Image */}
+              <div className="absolute inset-0 z-0">
                 <Image 
                   src={service.image} 
                   alt={service.title}
                   fill
-                  className="object-cover"
+                  className="object-cover md:object-fill"
                 />
+              </div>
+
+              {/* Text Content Overlaid on Empty Space */}
+              <div className={`relative z-10 w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center ${service.reverse ? 'ml-auto' : 'mr-auto'}`}>
+                <h3 className="text-3xl font-bold mb-4 text-white drop-shadow-lg">{service.title}</h3>
+                <p className="text-gray-200 leading-relaxed drop-shadow-md font-medium">
+                  {service.description}
+                </p>
+                <div className="mt-6">
+                  <button className="text-primary font-bold hover:text-white transition-colors flex items-center gap-2 drop-shadow-md">
+                    Learn more <span>→</span>
+                  </button>
+                </div>
               </div>
             </motion.div>
           ))}
