@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Twitter, Instagram, Youtube, Facebook } from "lucide-react";
+import { Mail, Globe, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -17,17 +17,19 @@ export default function Footer() {
           </span>
         </Link>
 
-        {/* Social Icons */}
+        {/* Social Links */}
         <div className="flex gap-6 mb-8">
-          <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Facebook className="w-5 h-5" /></a>
-          <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Twitter className="w-5 h-5" /></a>
-          <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></a>
-          <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Youtube className="w-5 h-5" /></a>
+          <a href="#" className="text-gray-400 hover:text-primary transition-colors font-medium">LinkedIn</a>
+          <a href="#" className="text-gray-400 hover:text-primary transition-colors font-medium">Twitter</a>
+          <a href="#" className="text-gray-400 hover:text-primary transition-colors font-medium">Instagram</a>
+          <a href="#" className="text-gray-400 hover:text-primary transition-colors font-medium">YouTube</a>
         </div>
 
         {/* Copyright */}
         <div className="text-center text-gray-500 text-xs">
-          <p>hello@oblabs.com</p>
+          <p className="flex items-center justify-center gap-2">
+            <Mail className="w-3 h-3" /> hello@oblabs.com
+          </p>
           <p className="mt-2">&copy; {new Date().getFullYear()} OB Labs. All rights reserved.</p>
         </div>
       </div>
